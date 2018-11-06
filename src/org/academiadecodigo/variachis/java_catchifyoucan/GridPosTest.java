@@ -10,6 +10,8 @@ public class GridPosTest {
 
         position.checkCollision(grid, position);
 
+
+
     }
 
 }
