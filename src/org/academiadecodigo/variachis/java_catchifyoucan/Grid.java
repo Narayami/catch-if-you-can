@@ -14,4 +14,21 @@ public class Grid {
         this.rows = rows;
 
     }
+
+
+    /**
+     *
+     * @return the number of cols
+     */
+    public int getCols() {
+        return cols;
+    }
+
+    /**
+     *
+     * @return the number of rows
+     */
+    public int getRows() {
+        return rows;
+    }
 }
