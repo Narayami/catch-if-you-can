@@ -8,11 +8,8 @@ public class Item extends AbstractCollidable {
 
     private Type type;
     private boolean colided = false;
-
-    //private Picture picture;
-    // TODO: 22-10-2018 need Picture
     private Position[] positions;
-
+    // TODO: 22-10-2018 need Picture
 
     public Item() {
         this.type = random();
@@ -33,7 +30,15 @@ public class Item extends AbstractCollidable {
         return Type.values()[randomType];
     }
 
-    // TODO: 22-10-2018 need Draw
+    public void draw(){
+        switch (type){
+            case TREE:
+            case BEER:         // TODO: 08-11-2018 draw logic here
+            case POLY:
+            case CAP:
+            case ABSTRACTION:
+        }
+    }
 
     public void moveDown() {
         for (int i = 0; i < positions.length; i++) {
