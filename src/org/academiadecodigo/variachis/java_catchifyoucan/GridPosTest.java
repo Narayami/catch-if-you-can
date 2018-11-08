@@ -7,8 +7,9 @@ public class GridPosTest {
         Grid grid = new Grid(20, 20);
 
         Position position = new Position(10, 10, grid);
+        //position.checkCollision(grid, position);
+        position.moveItemDown(position, grid);
 
-        position.checkCollision(grid, position);
 
 
 

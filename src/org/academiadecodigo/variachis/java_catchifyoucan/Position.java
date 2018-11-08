@@ -24,16 +24,39 @@ public class Position {
 
         Direction actualDirection = Direction.LEFT; //FOR TESTING PURPOSE
 
+        //PLAYER MOVES LEFT AND RIGHT
         switch (actualDirection){
             case RIGHT:
                 moveRight(position, grid);
+                break;
             case LEFT:
                 moveLeft(position, grid);
+                break;
         }
 
     }
 
-    private void moveLeft(Position position, Grid grid) {
+    //ITEM MOV DOWN SEPARATED FROM PLAYER MOVE
+    public void moveItemDown(Position position, Grid grid) {
+        //random col post for the item to fall
+        position.cols = (int)Math.floor(Math.random() * grid.getCols());
+        System.out.println(position.cols);
+
+        for (int i = position.cols ; i < grid.getRows() + 1; i++) {
+            System.out.println("Position col: " + i + " Grid has: " + grid.getRows() + " Rows" +
+                    " and " + grid.getCols() + " cols!");
+
+            if (i == grid.getRows()){
+                System.out.println("Position col reached: " + i + " Collision logic working!");
+                return;
+            }
+            rows++;
+        }
+
+
+    }
+
+    public void moveLeft(Position position, Grid grid) {
 
         for (int i = position.cols; i != 0 -1 ; i--) { //first col is always 0 i guess.
             System.out.println("Position col: " + i + " Grid has: " + grid.getCols() + " Cols");
@@ -48,7 +71,7 @@ public class Position {
 
     }
 
-    private void moveRight(Position position, Grid grid) {
+    public void moveRight(Position position, Grid grid) {
         for (int i = position.cols; i != grid.getCols() + 1; i++) { //WHY NEED + 1? WITHOUT + 1 STOPS AT 19.. HUMMM...
             System.out.println("Position col: " + i + " Grid has: " + grid.getCols() + " Cols");
 
