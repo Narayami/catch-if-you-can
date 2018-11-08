@@ -21,6 +21,12 @@ public class Position {
         return collided;
     }
 
+    public boolean checkPlayerColission(Position p){ // TODO: 08-11-2018 acho que aqui como argumento tem q ser um array de positions
+        if (this.cols == p.cols && this.rows == p.rows){
+            return true;
+        }
+        return false;
+    }
 
     public void checkCollision(Grid grid, Position position) {
 

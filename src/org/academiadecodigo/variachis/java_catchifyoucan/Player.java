@@ -4,4 +4,9 @@ public class Player extends AbstractCollidable {
 
     private Position[] positions;
 
+    public Player(){
+        this.positions = PositionFactory.getPlayerPositions();
+    }
+
+
 }
