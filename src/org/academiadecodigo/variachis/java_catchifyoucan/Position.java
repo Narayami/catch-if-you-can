@@ -37,20 +37,22 @@ public class Position {
     }
 
     //ITEM MOV DOWN SEPARATED FROM PLAYER MOVE
-    public void moveItemDown(Position position, Grid grid) {
+    public void moveItemDown() {
         //random col post for the item to fall
-        position.cols = (int)Math.floor(Math.random() * grid.getCols());
-        System.out.println(position.cols);
+        cols = (int)Math.floor(Math.random() * grid.getCols());
+        System.out.println(cols);
 
-        for (int i = position.cols ; i < grid.getRows() + 1; i++) {
+        for (int i = cols ; i < grid.getRows() + 1; i++) {
             System.out.println("Position col: " + i + " Grid has: " + grid.getRows() + " Rows" +
                     " and " + grid.getCols() + " cols!");
 
-            if (i == grid.getRows()){
+            if (i == grid.getRows()) {
                 System.out.println("Position col reached: " + i + " Collision logic working!");
                 return;
             }
+
             rows++;
+            System.out.println("pos row: " + rows + ", grid rows: " + grid.getRows());
         }
 
 

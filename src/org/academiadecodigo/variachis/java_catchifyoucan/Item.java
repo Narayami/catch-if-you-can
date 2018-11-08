@@ -8,13 +8,22 @@ public class Item extends AbstractCollidable {
 
     private Type type;
     private boolean colided = false;
+    private Grid grid = new Grid(20,20);
     //private Picture picture;
     // TODO: 22-10-2018 need Picture
-    // TODO: 22-10-2018 need Position - parameter constructor
+    // TODO: 22-10-2018 need Position - if cell size = 10 then 50x50px image needs 25 positions
+    private Position[] positions;
 
-    public Item(Type type) {
-        this.type = type;
-        //picture = new Picture(super.getPosition().getCol(), super.getPosition().getRow() + grid.PADDING, type.pic);
+
+    public Item() {
+        this.type= random();
+        this.positions = new Position[]{
+                new Position(1,1,grid),
+                new Position(1,2,grid)};
+    }
+
+    public void setGrid(Grid grid) {
+        this.grid = grid;
     }
 
     public void setColided(boolean colided) {
@@ -40,6 +49,11 @@ public class Item extends AbstractCollidable {
 
     // TODO: 22-10-2018 need Draw and move
 
+    public void moveDown(){
+        for (int i = 0; i < positions.length; i++) {
+            positions[i].moveItemDown();
+        }
+    }
     /**
      * Inner class that defines all items and makes them act different with player
      */
