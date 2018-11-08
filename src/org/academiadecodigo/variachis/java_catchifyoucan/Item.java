@@ -39,6 +39,7 @@ public class Item extends AbstractCollidable {
         for (int i = 0; i < positions.length; i++) {
             if (positions[i].isCollided()){
                 setColided(true);
+                System.out.println("Narayami gay");
                 return;
             }
             positions[i].moveItemDown();
