@@ -8,7 +8,7 @@ public class Item extends AbstractCollidable {
 
     private Type type;
     private boolean colided = false;
-    private Grid grid = new Grid(20,20);
+    private Grid grid = new Grid(20, 20);
     //private Picture picture;
     // TODO: 22-10-2018 need Picture
     // TODO: 22-10-2018 need Position - if cell size = 10 then 50x50px image needs 25 positions
@@ -16,10 +16,14 @@ public class Item extends AbstractCollidable {
 
 
     public Item() {
-        this.type= random();
+        this.type = random();
         this.positions = new Position[]{
-                new Position(1,1,grid),
-                new Position(1,2,grid)};
+                new Position(2, 0, grid),
+                new Position(4, 0, grid),
+                new Position(6, 0, grid),
+                new Position(8, 0, grid),
+                new Position(10, 0, grid)
+        };
     }
 
     public void setGrid(Grid grid) {
@@ -36,6 +40,7 @@ public class Item extends AbstractCollidable {
 
     /**
      * random type for items
+     *
      * @return Item Type, random one
      */
     public static Type random() {
@@ -49,11 +54,12 @@ public class Item extends AbstractCollidable {
 
     // TODO: 22-10-2018 need Draw and move
 
-    public void moveDown(){
+    public void moveDown() {
         for (int i = 0; i < positions.length; i++) {
             positions[i].moveItemDown();
         }
     }
+
     /**
      * Inner class that defines all items and makes them act different with player
      */
