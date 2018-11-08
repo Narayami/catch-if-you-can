@@ -12,9 +12,11 @@ public class PositionFactory {
 
     public static Position[] getItemPositions(){
         Position[] positions = new Position[25];
+        int count =0;
         for (int i = 0; i <5 ; i++) {
             for (int j = 0; j <5 ; j++) {
-                positions[i+j] = getPositionRandomCol();
+                positions[count] = getPositionRandomCol();
+                count++;
             }
         }
         return positions;

@@ -8,6 +8,11 @@ public class GridPosTest {
 
         //position.checkCollision(grid, position);
         Item item = new Item();
+        for (int i = 0; i < 20 ; i++) {
+            item.moveDown();
+        }
+
+        item.moveDown();
 
         item.moveDown();
 
