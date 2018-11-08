@@ -1,6 +1,6 @@
 package org.academiadecodigo.variachis.java_catchifyoucan;
 
-public abstract class AbstractCollidable implements Collidable {
+public class Player extends AbstractCollidable {
 
     private Position[] positions;
 
