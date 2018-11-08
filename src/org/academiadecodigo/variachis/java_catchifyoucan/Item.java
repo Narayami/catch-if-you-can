@@ -11,7 +11,6 @@ public class Item extends AbstractCollidable {
 
     //private Picture picture;
     // TODO: 22-10-2018 need Picture
-    // TODO: 22-10-2018 need Position - if cell size = 10 then 50x50px image needs 25 positions
     private Position[] positions;
 
 
@@ -29,31 +28,24 @@ public class Item extends AbstractCollidable {
         return colided;
     }
 
-    /**
-     * random type for items
-     *
-     * @return Item Type, random one
-     */
     public static Type random() {
         int randomType = (int) (Math.random() * Type.values().length);
         return Type.values()[randomType];
     }
 
-    public Type getType() {
-        return type;
-    }
-
-    // TODO: 22-10-2018 need Draw and move
+    // TODO: 22-10-2018 need Draw
 
     public void moveDown() {
         for (int i = 0; i < positions.length; i++) {
+            if (positions[i].isCollided()){
+                setColided(true);
+                return;
+            }
             positions[i].moveItemDown();
         }
     }
 
-    /**
-     * Inner class that defines all items and makes them act different with player
-     */
+
     public enum Type {
         CAP("cap.png"),
         ABSTRACTION("abstraction.png"),
