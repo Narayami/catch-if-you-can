@@ -8,14 +8,18 @@ public class Item extends AbstractCollidable {
 
     private Type type;
     private boolean colided = false;
-    //private Picture picture;
+    private Position[] positions;
     // TODO: 22-10-2018 need Picture
-    // TODO: 22-10-2018 need Position - parameter constructor
 
-    public Item(Type type) {
-        this.type = type;
-        //picture = new Picture(super.getPosition().getCol(), super.getPosition().getRow() + grid.PADDING, type.pic);
+    public Item() {
+        this.type = random();
+        this.positions = PositionFactory.getItemPositions();
     }
+
+    public Position[] getPositions() {
+        return positions;
+    }
+
 
     public void setColided(boolean colided) {
         this.colided = colided;
@@ -25,24 +29,33 @@ public class Item extends AbstractCollidable {
         return colided;
     }
 
-    /**
-     * random type for items
-     * @return Item Type, random one
-     */
     public static Type random() {
         int randomType = (int) (Math.random() * Type.values().length);
         return Type.values()[randomType];
     }
 
-    public Type getType() {
-        return type;
+    public void draw(){
+        switch (type){
+            case TREE:
+            case BEER:         // TODO: 08-11-2018 draw logic here
+            case POLY:
+            case CAP:
+            case ABSTRACTION:
+        }
     }
 
-    // TODO: 22-10-2018 need Draw and move
+    public void moveDown() {
+        for (int i = 0; i < positions.length; i++) {
+            if (positions[i].isCollided()){
+                setColided(true);
+                System.out.println("Narayami gay");
+                return;
+            }
+            positions[i].moveItemDown();
+        }
+    }
 
-    /**
-     * Inner class that defines all items and makes them act different with player
-     */
+
     public enum Type {
         CAP("cap.png"),
         ABSTRACTION("abstraction.png"),
