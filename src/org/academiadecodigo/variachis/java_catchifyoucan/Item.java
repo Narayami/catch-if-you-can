@@ -16,6 +16,10 @@ public class Item extends AbstractCollidable {
         this.positions = PositionFactory.getItemPositions();
     }
 
+    public Position[] getPositions() {
+        return positions;
+    }
+
 
     public void setColided(boolean colided) {
         this.colided = colided;

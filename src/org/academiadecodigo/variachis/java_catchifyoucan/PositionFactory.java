@@ -26,10 +26,12 @@ public class PositionFactory {
     }
 
     public static Position[] getPlayerPositions(){
+        int startCol = (grid.getCols()/2) - 5;
+        int startRow = grid.getRows() -10;
         Position[] positions = new Position[50];
         int count = 0;
-        for (int i = 0; i < 5 ; i++) {
-            for (int j = 0; j <10 ; j++) {
+        for (int i = startCol; i < 5 ; i++) {
+            for (int j = startRow; j <10 ; j++) {
                 positions[i] = new Position(i,j,grid);
             }
         }
