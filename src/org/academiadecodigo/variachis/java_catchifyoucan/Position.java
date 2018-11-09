@@ -28,6 +28,15 @@ public class Position {
         return false;
     }
 
+    public int getRows() {
+        return rows;
+    }
+
+    public int getCols() {
+        return cols;
+    }
+
+
     public void checkCollision(Grid grid, Position position) {
 
         System.out.println("Position cols: " + position.cols + " Position rows: " + position.rows);
